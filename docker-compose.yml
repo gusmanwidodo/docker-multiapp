@@ -1,10 +1,19 @@
 version: '2'
 
 services:
+
+  php:
+    build:
+      context: ./.docker/images/php
+    volumes:   
+      - ./apps/php:/var/www/php
+
   nginx:
     build:
       context: ./.docker/images/nginx
     volumes:
-      - ./apps/html:/var/www/html
+      - ./apps/html:/var/www/html      
+      - ./apps/php:/var/www/php
     ports:
       - "8080:80"
+      - "8081:81"
