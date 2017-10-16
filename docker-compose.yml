@@ -1,1 +1,10 @@
 version: '2'
+
+services:
+  nginx:
+    build:
+      context: ./.docker/images/nginx
+    volumes:
+      - ./apps/html:/var/www/html
+    ports:
+      - "8080:80"
