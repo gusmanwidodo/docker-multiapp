@@ -8,6 +8,15 @@ services:
     volumes:   
       - ./apps/php:/var/www/php
 
+  python:
+    build:
+      context: ./.docker/images/python
+    working_dir: /var/www/python
+    volumes:
+      - ./apps/python:/var/www/python      
+    ports:
+      - "8082:9001"
+
   nginx:
     build:
       context: ./.docker/images/nginx
